@@ -13,23 +13,19 @@ http
 function getTitles(res) {
   // Leemos el archivo JSON y usamos una callback para definir que hacer con su contenido
   fs.readFile("./titles.json", (err, data) => {
-    if (err) {
-      handError(err, res);
-    } else {
-      // Parseamos los datos del archivo JSON
-      getTemplate(JSON.parse(data.toString()), res);
-    }
+    // Hacemos uso explicito de la palabra 'return' para no continuar ejecutando la función.
+    // Asi evitamos el abuso de las ramas if/else
+    if (err) return handError(err, res);
+    // Parseamos los datos del archivo JSON
+    getTemplate(JSON.parse(data.toString()), res);
   });
 }
 
 function getTemplate(titles, res) {
   // Leemos la plantilla HTML y usamos un callback para cuando cargen los datos
   fs.readFile("./template.html", (err, data) => {
-    if (err) {
-      handError(err, res);
-    } else {
-      formatHtml(titles, data.toString(), res);
-    }
+    if (err) return handError(err, res);
+    formatHtml(titles, data.toString(), res);
   });
 }
 
