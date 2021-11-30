@@ -1,0 +1,6 @@
+{
+  "name": "cb-example",
+  "description": "Callbacks - Ejemplo de como usar la manera más simple de asincronía en Node Js",
+  "author": "GFU",
+  "dependencies": {}
+}
